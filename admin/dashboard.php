@@ -1,7 +1,7 @@
-<?php include('inc/header.php') ?>
+<?php include('inc/header.php'); ?>
 	<!-- start: Header -->
 	
-<?php include('inc/sidebar.php') ?>		
+<?php include('inc/sidebar.php'); ?>		
 		
 	<div class="modal hide fade" id="myModal">
 		<div class="modal-header">
@@ -18,5 +18,28 @@
 	</div>
 	
 	<div class="clearfix"></div>
+
+
+
+         <?php
+
+             if (isset($page)) {
+             	if ($page=='category_form.php') {
+             		include'./pages/category_form.php';
+             	}
+             	if ($page=='manage_cat_info.php') {
+             		include'./pages/manage_cat_info.php';
+             	}
+             }
+
+         ?>
+
+
+
+
+
+		<!-- end: Content -->
+		</div><!--/#content.span10-->
+		</div><!--/fluid-row-->
 	
-	
+	<?php include('inc/footer.php');?>

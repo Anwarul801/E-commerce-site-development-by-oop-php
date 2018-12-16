@@ -1,10 +1,19 @@
+<?php include "class/Seasion.php";
+   Seasion::checkSeasion();
+?>
+
+<?php
+    include('class/database.php');
+    $db = new database();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+	<title>Admin Dashboard</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -52,7 +61,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>Metro</span></a>
+				<a class="brand" href="index.php"><span>Dashboard</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -304,18 +313,16 @@
 							</a>
 						</li>
 						<!-- start: User Dropdown -->
-						<li class="dropdown">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> Dennis Ji
-								<span class="caret"></span>
+						<li>
+							<form class="form-inline">
+     <?php
+        if (isset($_GET['action']) && $_GET['action'] == "logout") {
+            Seasion::destroy();
+            }
+        ?>
+							<a href="?action=logout">Logout</a>
 							</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-menu-title">
- 									<span>Account Settings</span>
-								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
-							</ul>
+						</form>	
 						</li>
 						<!-- end: User Dropdown -->
 					</ul>
